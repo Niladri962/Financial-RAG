@@ -24,8 +24,38 @@ Built with **LangChain, Qdrant, Neo4j, all-MiniLM-L6-v2, Ollama, and Streamlit**
 # System Architecture
 
 ```text
-<img width="318" height="442" alt="Screenshot 2026-06-14 133148" src="https://github.com/user-attachments/assets/258a79e2-ecc3-413d-a11d-00e5d4d39702" />
-
+PDF Reports
+       │
+       ▼
+Document Loader + OCR
+(PyPDFLoader + Tesseract)
+       │
+       ▼
+Chunking
+(LangChain Recursive Text Splitter)
+       │
+       ▼
+Embedding Generation
+(all-MiniLM-L6-v2)
+       │
+       ▼
+Qdrant Vector Database
+(Semantic Search)
+       │
+       ▼
+Neo4j Knowledge Graph
+(Entities & Relationships)
+       │
+       ▼
+Hybrid Retriever
+(Vector + Graph Fusion)
+       │
+       ▼
+Llama 3 via Ollama
+       │
+       ▼
+Streamlit Frontend
+```
 
 ---
 
